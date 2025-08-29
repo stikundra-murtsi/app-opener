@@ -6,6 +6,7 @@ app="$2" # Приложение
 error="For a hint use command - help..." # Ошибка
 p="$(dirname $(realpath $0))/"
 config="$HOME/.config/app-opener/app-opener.conf"
+version="1.1"
 
 if [[ -f $config ]]; then
 	while IFS='=' read -r key value; do
@@ -15,12 +16,21 @@ if [[ -f $config ]]; then
 
 		export "$key"="$value"
 	done < "$config"
+else
+	app recovery
+fi
+
+mkdir -p "$HOME/.app-opener/apps" "$HOME/.app-opener/scripts"
+
+if [[ -z "$com" ]]; then
+	echo "$error"
+	exit 1
 fi
 
 case $com in
 	# Отсек приложений
 	open)
-		$p"apps/$app"
+		"$HOME/.app-opener/apps/$app"
 		;;
 	# Установка приложений/скриптов
 	setup)
@@ -36,7 +46,7 @@ case $com in
 		;;
 	# Отсек скриптов
 	start)
-		$p"scripts/"$app
+		"$HOME/.app-opener/scripts/"$app
 		;;
 	# Редактор скриптов
 	edit)
@@ -46,15 +56,15 @@ case $com in
 		elif [ $app == "config" ]; then
 			echo -e "\e[32mEditing the configuration app-opener...\e[0m"
 			$Editor "$HOME/.config/app-opener/app-opener.conf"
-		elif [[ -f $p"scripts/"$app ]]; then
+		elif [[ -f "$HOME/.app-opener/scripts/"$app ]]; then
 			echo -e "\e[32mOpening the script $app in $Editor...\e[0m"
-			$Editor $p"scripts/"$app
+			$Editor "$HOME/.app-opener/scripts/"$app
 		else
 			echo -e "\e[31mSpecify the script...\e[0m"
 		fi
 		;;
 	recovery)
-		$p"recovery.sh" "$p"
+		$p"recovery.sh" "$HOME/.app-opener/"
 		;;
 	# Помощь
 	help)
@@ -70,6 +80,9 @@ case $com in
 		;;
 	path)
 		echo -e "Path to the root catalog app-opener: \e[32m$p\e[0m"
+		;;
+	version)
+		echo "app-opener - $version"
 		;;
 	# Ошибка
 	*)

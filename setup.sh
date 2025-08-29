@@ -6,7 +6,7 @@ p="$2"
 n1="$3"
 n2="$4"
 papop="$5"
-error="Для подсказки используй app setup help"
+error="For a hint use command - app setup help"
 
 # Установка -с
 create() {
@@ -18,12 +18,12 @@ create() {
 	# Проверка типа
 	case $1 in
 		app)
-			pfile=$papop"apps/"
+			pfile="$HOME/.app-opener/apps/"
 			fname="$2"
 			endecho="\e[32mapp $fname created...\e[0m"
 			;;
 		scr)
-			pfile=$papop"scripts/"
+			pfile="$HOME/.app-opener/scripts/"
 			fname="$2"
 			endecho="\e[32mScript $fname created...\e[0m"	
 			;;
