@@ -1,8 +1,8 @@
 :root {
 	/* Настройки базовой кнопки */
 
-	--button-color: azure; /* Цвет кнопки */
-	--button-text-color: black; /* Цвет текста на кнопке */
+	--button-color: #8FABB7; /* Цвет кнопки */
+	--button-text-color: #FBFBFB; /* Цвет текста на кнопке */
 	--button-border-radius: 14px; /* Радиус угла */
 	--button-padding: 5px; /* Внутренние отступы кнопки */
 	--button-anim-time: 0.1s; /* Скорость анимации кнопки */

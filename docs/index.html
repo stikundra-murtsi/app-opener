@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+	<title>App opener</title>
+	<meta charset="UTF-8">
+	<link rel="icon" href="img/app-opener_ico.png" sizes="32x32">
+	
+	<link rel="stylesheet" href="styles/buttons.css">
+	<link rel="stylesheet" href="styles/cards.css">
+	<link rel="stylesheet" href="styles/head.css">
+	<link rel="stylesheet" href="styles/other.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div id="header">
+		<div id="site_general">app open _</div>
+		<p id="page_title">Главная</p>
+		<div id="header_buttons">
+			<button class="header_button" id="goto_man">Документация</button>
+			<button class="header_button" id="goto_download">Скачать</button>
+		</div>
+	</div>
+	<div id="helper">
+		<div class="card">
+			<h3 class="card_title">Что такое app-opener?</h3>
+			<p>App-opener - это комплекс для открытия приложений и запуска скриптов. В самом начале нужен был для открытия сложно-доступных приложений.</p>
+			<p>Сам по себе app-opener написан на bash, полностью, это сложилось исторически. В будущем планируется переписать app-opener на C или даже на C++.</p>
+		</div>
+		<div class="card">
+			<h3 class="card_title">Будущее app-opener</h3>
+			<ul>
+				<li>Создание репозитория HCR.apop (Hard Coal Repository).</li>
+				<li>Переписать app-opener на C (или на C++).</li>
+			</ul>
+		</div>
+		<div class="card card_gen_2">
+			<h3 class="card_title">История app-opener</h3>
+			
+			<details open>
+				<summary>app-open</summary>
+				<p>Это самое первое приложение из семейства, я его придумал когда задумался "На какой хрен мне открывать nekoray так <span class="code">$ sudo /root/nekoray/nekoray</span> или качать какое то лишнее графическое меню запуска, если я могу написать на python и bash свой открыватель приложений и запускать Nekoray вот так <span class="code">app-open nekoray</span> И написал я так app-open, тогда я еще сидел на Debian. Его не обошли большие недоработки. Для начала само приложение запускалось через баш скрипт который запускал через python3 <span class="code">apop.py</span>, это было лишнее нагромождение, но самый смак это в самом <span class="code">apop.py</span>, внутри его использовался модуль <span class="code">subprocess</span> и я его там использовал так, <span class="code">subprocess ["/user/app-opener/nekoray.sh"]</span>, вот теперь вы понимаете почему он был очень недоработанным? Для каждого приложения я делал новый <span class="code">.sh</span> файл, это очень захламляло мою систему.</p>
+				<p>Работал он в общем так: <span class="code">app-open nekoray</span> и это запускает nekoray без вывода логов в терминал.</p>
+			</details>
+
+			<details>
+				<summary>sudo-open</summary>
+				<p>Это официальный форк app-open, создан он был после перехода на Arch Linux. Из за политики дистрибутива app-open стал нерабочим и не открывался от обычного пользователя. Я действовал сразу, скопировал весь код из <span class="code">apop.py</span> в <span class="code">suop.py</span>, и чуть чуть его переделал чтоб он открывал приложения только от рута.</p>
+				<p>А вообще ничем не отличается от app-open: <span class="code">sudo sudo-open nekoray</span>.</p>
+			</details>
+			
+			<details>
+				<summary>start</summary>
+				<p>Оптимизированный открыватель сложно-доступных приложений. Но перед его появлением sudo-open распался и все его <span class="code">.sh</span> файлы я вылил в <span class="code">/usr/bin/</span> и это были несколько дней хаоса. Но потом я осознал, что я app-open мог написать на bash и был бы единый скрипт. Я быстренько изучил логику bash с помощью ChatGPT и пошел делать start. Он был в одном файле, что очень удобно и компактно. Теперь на моем Arch со start стал менее захламленным чем был с app-open.</p>
+				<p>Но его главная проблема в том что все было в одном файле, что мешало расширению.</p>
+				<p>Start - по факту, это участник семейства app-opener: <span class="code">start nekoray</span>.</p>
+			</details>
+			<details>
+				<summary>app-opener</summary>
+				<p>Это огромное обновление start при котором он обрел истинное название app-opener. Цель этой ветки максимальная оптимизация открытия приложений и скриптов. Теперь открывалка стал менее скомканным и имеет так называемые "отсеки":</p>
+				<ul>
+					<li><span class="code">open</span> - открытие приложений.</li>
+					<li><span class="code">start</span> - запуск скриптов.</li>
+					<li><span class="code">help</span>, <span class="code">soft</span>, <span class="code">save</span> - дополнительные функции.</li>
+				</ul>
+				<p>А его обычная команда выглядела так: <span class="code">app open nekoray</span>.</p>
+			</details>
+		</div>
+	</div>
+</body>
+
+<script type="module" src="src/goto.js"></script>

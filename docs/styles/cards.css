@@ -3,16 +3,26 @@
  * .card_title - наименование карточки.
  * */
 
+@font-face {
+	font-family: "Terminus";
+	src: url('Terminus.ttf') format("ttf");
+	font-weight: normal;
+	font-style: normal;
+	image-rendering: pixelated;
+	font-smooth: never;
+	font-display: swap;
+}
+
 :root {
 	/* Настройка карточки */
 
-	--card-color: aqua; /* Цвет карточки */
+	--card-color: #D8DFE5; /* Цвет карточки */
 	--card-border-radius: 14px; /* Значение скругления краев карточки */
 	--card-padding: 10px; /* Внутреннее растояние содержимого карточки от краев */
-	--card-font-family: "Arial"; /* Шрифт карточки */
-	--card-font-size: 14px; /* Размер шрифта карточки */
-	--card-title-size: 24px; /* Размер наименования карточки */
-	--card-text-color: black; /* Цвет текста на карточке */
+	--card-font-family: "Terminus"; /* Шрифт карточки */
+	--card-font-size: 22px; /* Размер шрифта карточки */
+	--card-title-size: 28px; /* Размер наименования карточки */
+	--card-text-color: #01070A; /* Цвет текста на карточке */
 	--card-anim-speed: 0.1s; /* Скорость анимации карточки */
 
 	/* Настройка контейнера с карточками */

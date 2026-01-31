@@ -5,20 +5,30 @@
  * #site_general   - название сайта.
  * */
 
+@font-face {
+	font-family: "Terminus";
+	src: url('./Terminus.ttf') format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	image-rendering: pixelated;
+	font-smooth: never;
+	font-display: swap;
+}
+
 :root {
 	/* Настройка головы сайта */
 
 	--header-max-top: 0; /* Граница где клейкость пропадает */
-	--header-color: aqua; /* Цвет головы */
-	--header-text-color: black; /* Цвет текста */
+	--header-color: #D8DFE5; /* Цвет головы */
+	--header-text-color: #01070A; /* Цвет текста */
 	--header-shadow-pos: 0px 0px 5px; /* Позиция тени головы */
 	--header-shadow-color: rgba(0, 0, 0, 0.15); /* Цвет тени головы */
 	--header-padding: 10px; /* Внутренний отступ головы */
 	--header-margin: 10px; /* Внешний отступ головы */
-	--header-font-size: 24px; /* Размер шрифта в голове */
+	--header-font-size: 28px; /* Размер шрифта в голове */
 	--header-gap: 10px; /* Отступ между элементами головы */
 	--header-border-radius: 14px; /* Скругление углов */
-	--header-font-family: Arial; /* Шрифт головы */
+	--header-font-family: "Terminus"; /* Шрифт головы */
 	
 	/* Настройка остальных элементов головы */
 	--header-addition-color: black; /* Цвет фона для остальных элементов */
@@ -43,6 +53,7 @@
 	display: flex;
 	flex-direction: row;
 	position: sticky;
+	z-index: 15;
 }
 
 #page_title {
@@ -51,7 +62,8 @@
 
 #header_buttons {
 	/* Описание области кнопок головы сайта */
-
+	
+	font-family: var(--header-font-family);
 	gap: var(--header-gap);
 	margin-left: auto;
 	display: flex;
@@ -63,21 +75,32 @@
 	/* Описание кнопок головы сайта */
 
 	font-size: var(--header-font-size);
+	font-family: var(--header-font-family);
 }
 
 #site_general {
 	/* Описание названия сайта */
 
 	font-size: var(--header-font-size);
+	background-color: color-mix(in srgb, #D8DFE5, black 10%);
+	border-radius: 14px;
+	padding: 10px;	
+	transition: background-color ease 0.1s;
+}
+
+#site_general:hover {
+	background-color: color-mix(in srgb, #D8DFE5, black 15%);
+}
+
+#site_general::before {
+	content: ">";
+	display: inline-block;
+	margin-right: 0.5em;
 }
 
 /* Совместимость */
 
 @media (max-width: 800px) {
-	.header_buttons {
-		flex-direction: column; /* Расстановка кнопок в колонку */
-	}
-
 	#header {
 		padding: var(--header-padding); /* Внутренние отступы головы по всем краям */
 	}
@@ -85,8 +108,12 @@
 
 /* Максимальный размер экрана при котором видно название страницы */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 	#page_title {
 		display: none;
+	}
+
+	#header_buttons {
+		flex-direction: column; /* Расстановка кнопок в колонку */
 	}
 }
