@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<head>
+	<title>App opener</title>
+	<meta charset="UTF-8">
+	<link rel="icon" href="img/app-opener_ico.png" sizes="32x32">
+	
+	<link rel="stylesheet" href="styles/buttons.css">
+	<link rel="stylesheet" href="styles/cards.css">
+	<link rel="stylesheet" href="styles/head.css">
+	<link rel="stylesheet" href="styles/other.css">
+	<link rel="stylesheet" href="styles/table.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div id="header">
+		<div id="site_general">app</div>
+		<p id="page_title">Документация</p>
+		<div id="header_buttons">
+			<button class="header_button" id="goto_man">Документация</button>
+			<button class="header_button" id="goto_download">Загрузка</button>
+		</div>
+	</div>
+	<div id="helper">
+		<div class="card">
+			<h3>Как загрузить app-opener?</h3>
+			<h4>GitHub</h4>
+			<p>Для загрузка app-opener с github надо:</p>
+			<ol>
+				<li>В меню загрузки на этом сайте установить архив с app-opener.</li>
+				<li>Распаковать архив с помощью команды <span class="code">unzip "путь до архива"</span>.</li> 
+				<li>Запустить в главной папке файл <span class="code">install.sh</span> и подтвердить установку вводом "y".</li>
+			</ol>
+			<p>Теперь у вас есть app-opener на компьютере, воспользуйтесь им с помщью команды <span class="code">app</span>. И да, спешу предупредить что пока что app-opener распространяется в английской локализации, в будущем я думаю добавить русскую.</p>
+		</div>
+		<div class="card">
+			<h3>Как загрузить app-opener?</h3>
+			<h4>AUR</h4>
+			<p>Если вы пользователь Arch Linux и вы наслышаны о AUR (Arch User Repository) то вы уже должны иметь у себя AUR помощник, тоесть <span class="code">yay</span> или <span class="code">paru</span>. Если у вас его нет то я вам тут не товарищ, установите помощник по гайду из другого источника или установите его вручную: <a href="https://aur.archlinux.org/packages/app-opener">app-opener</a>. Ну а если у вас есть один из помощников то просто воспользуйтесь данной командой:</p>
+			<p><span class="code">yay -S app-opener</span> - если у вас yay.</p>
+			<p><span class="code">paru -S app-opener</span> - если у вас paru.</p>
+			<p>Все, теперь вы после установки можете запустить app-opener с помощью команды: <span class="code">app</span></p>
+		</div>
+		<div class="card">
+			<h3>Простые команды</h3>
+			<table class="man_table">
+				<tr class="mt_head">
+					<td>Команда</td>
+					<td>Описание</td>
+				</tr>
+				<tr>
+					<td><span class="code">app open "приложение"</span></td>
+					<td>Открыть приложение</td>
+				</tr>	
+				<tr>
+					<td><span class="code">app start "скрипт"</span></td>
+					<td>Запустить скрипт</td>
+				</tr>
+				<tr>
+					<td><span class="code">app help</span></td>
+					<td>Показать меню помощи</td>
+				</tr>
+				<tr>
+					<td><span class="code">app path</span></td>
+					<td>Показать путь до app-opener</td>
+				</tr>
+				<tr>
+					<td><span class="code">app version</span></td>
+					<td>Показать версию</td>
+				</tr>
+			</table>
+		</div>
+		<div class="card">
+			<h3>Установка приложений</h3>
+			<p>В app-opener под установкой приложений имеется ввиду создание ярлыка исполнения команды. Вот команды для создания таких ярлыков:</p>
+			<table class="man_table">
+				<tr class="mt_head">	
+					<td>Команда</td>
+					<td>Описание</td>
+				</tr>
+				<tr>
+					<td><span class="code">app setup app</span></td>
+					<td>Создание приложения</td>
+				</tr>
+				<tr>
+					<td><span class="code">app setup scr</span></td>
+					<td>Создание скрипта</td>
+				</tr>
+				<tr>
+					<td><span class="code">app setup (app/scr) "имя" "путь/до/оригинала"</span></td>
+					<td>Установка существующего приложения или скрипта в папку app-opener</td>
+				</tr>
+				<tr>
+					<td><span class="code">app setup app -c "имя" "команда"</span></td>
+					<td>Создание ногово приложения которое исполняет команду при запуске</td>
+				</tr>
+				<tr>
+					<td><span class="code">app setup scr -c "имя"</span></td>
+					<td>Создание нового скрипта</td>
+				</tr>
+			</table>
+		</div>
+		<div class="card">
+			<h3>Более редкие команды</h3>
+			<table class="man_table">	
+				<tr class="mt_head">	
+					<td>Команда</td>
+					<td>Описание</td>
+				</tr>
+				<tr>
+					<td><span class="code">app list</span></td>
+					<td>Показать все приложения и скрипты</td>
+				</tr>
+				<tr>
+					<td><span class="code">app list (app/scr)</span></td>
+					<td>Показать приложения/скрипты</td>
+				</tr>
+				<tr>
+					<td><span class="code">app recovery</span></td>
+					<td>Проверяет и исправляет повреждения</td>
+				</tr>
+				<tr>
+					<td><span class="code">app edit "скрипт"</span></td>
+					<td>Открыть скрипт в редакторе</td>
+				</tr>
+			</table>
+		</div>
+		<div class="card">
+			<h3>Файл конфигурации</h3>
+			<p>Файл конфигурации пока что имеет одну команду: <span class="code">Editor=nano</span>, на месте nano можно написать любой редактор, например <span class="code">Editor=vim</span>.</p>
+		</div>
+	</div>
+</body>
+
+<script type="module" src="src/goto.js"></script>

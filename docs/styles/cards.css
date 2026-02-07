@@ -40,12 +40,13 @@
 	border-radius: var(--card-border-radius);
 	padding: var(--card-padding);
 	transition: background-color var(--card-anim-speed) ease-in-out;
-	
+
 	/* Описание текста карточки */
 	
 	font-size: var(--card-font-size);
 	font-family: var(--card-font-family);
 	color: var(--card-text-color);
+
 }
 
 .card:hover {
@@ -74,5 +75,11 @@
 @media (max-width: 800px) {
 	#helper {
 		grid-template-columns: var(--helper-mobile-columns);
+	}
+}
+
+@media (max-width: 650px) {
+	:root {
+		--card-title-size: 24px;
 	}
 }

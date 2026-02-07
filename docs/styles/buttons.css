@@ -17,7 +17,11 @@ button {
 	padding: var(--button-padding);
 	border: 0;
 	appearance: none;
-	transition: background-color, var(--button-anim-time);
+	transition: background-color, var(--button-anim-time) ease;
+}
+
+button:disabled {
+	background-color: gray;	
 }
 
 button:hover {

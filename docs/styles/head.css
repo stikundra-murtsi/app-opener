@@ -92,10 +92,20 @@
 	background-color: color-mix(in srgb, #D8DFE5, black 15%);
 }
 
+#site_general:active {
+	background-color: color-mix(in srgb, #D8DFE5, black 20%);
+}
+
 #site_general::before {
 	content: ">";
 	display: inline-block;
 	margin-right: 0.5em;
+}
+
+#site_general::after {
+	content: "open _";
+	display: inline-block;
+	margin-left: 0.5em;
 }
 
 /* Совместимость */
@@ -104,16 +114,20 @@
 	#header {
 		padding: var(--header-padding); /* Внутренние отступы головы по всем краям */
 	}
+
+	#page_title {
+		display: none;
+	}
 }
 
 /* Максимальный размер экрана при котором видно название страницы */
 
 @media (max-width: 650px) {
-	#page_title {
-		display: none;
-	}
-
 	#header_buttons {
 		flex-direction: column; /* Расстановка кнопок в колонку */
+	}
+
+	#site_general::after {
+		content: "_";
 	}
 }

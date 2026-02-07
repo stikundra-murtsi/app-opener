@@ -1,0 +1,8 @@
+.man_table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.mt_head {
+	font-weight: bold;
+}
